@@ -1,0 +1,95 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+// import useInput from '../hooks/useInput';
+import '../style/AdminUsers.css';
+// import { useNavigate } from 'react-router';
+
+//FALTA: - Considerar que un admin no puede autorrevocarse un permiso.
+
+const AdminUsers = () => {
+  // const searchValue = useInput('');
+
+  const user = useSelector(state => state.user);
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://the-green-shop.herokuapp.com/api/user/getAll/${user.roleId}`).then(res => {
+      setUsers(res.data);
+    });
+  }, []);
+  const handlePromote = id => {
+    axios.put(`https://the-green-shop.herokuapp.com/api/user/admin/adminPromote`, { id }).then(() => {
+      axios.get(`https://the-green-shop.herokuapp.com/api/user/getAll/${user.roleId}`).then(res => {
+        setUsers(res.data);
+      });
+    });
+  };
+
+  return (
+    <div className='container usersTitleDiv'>
+      <h1 style={{paddingBottom: '40px'}}>Users</h1>
+      {/* <div className='searchFormDiv'>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <label htmlFor="searchUsersInput">Buscador de usuarios </label>
+          <input
+            type="text"
+            name="users"
+            id="searchUsersInput"
+            className="searchFormInput"
+            placeholder="Busca un usuario"
+            {...searchValue}
+          />
+          <button className="btn btn-primary searchFormBtn">Buscar</button>
+        </form>
+      </div> */}
+      <Table bordered hover responsive>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((usr, index) => {
+            return (
+              <tr key={index}>
+                <td>{usr.name}</td>
+                <td>{usr.lastname}</td>
+                <td>{usr.email}</td>
+                <td>
+                  {usr.roleId === 2 || usr.roleId === 3 ? (
+                    <button
+                      className='btn btn-danger'
+                      disabled={
+                        user.id ? parseInt(user.id) === parseInt(usr.id) : true
+                      }
+                    >
+                      Remove
+                    </button>
+                  ) : (
+                    <button
+                      className='btn btn-success'
+                      disabled={
+                        user.id ? parseInt(user.id) === parseInt(usr.id) : true
+                      }
+                      onClick={() => handlePromote(usr.id)}
+                    >
+                      Promote
+                    </button>
+                  )}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+    </div>
+  );
+};
+
+export default AdminUsers;

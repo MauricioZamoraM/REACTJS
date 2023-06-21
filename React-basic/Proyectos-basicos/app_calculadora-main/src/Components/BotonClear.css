@@ -1,0 +1,42 @@
+.boton-clear{
+    height: 50px;
+    font-size: 1.6em;
+    display:flex;
+    flex:2.35;
+    background-color: red;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    background-color: #0b5383;
+}
+
+.boton-clear:hover{
+    background-color: #1b1b32;
+}
+
+.icon{
+    height: 40px;
+    width: 40px;
+}
+
+@media (max-width: 576px) {
+    .boton-clear {
+        height: 40px;
+        font-size: 1em;
+    }
+
+    .icon {
+        height: 30px;
+        width: 30px;
+    }
+}
+

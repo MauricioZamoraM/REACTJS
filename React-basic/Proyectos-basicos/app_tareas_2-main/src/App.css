@@ -1,0 +1,102 @@
+     
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  background-color: #1b1b32;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: 100%;
+  display: inherit;
+  justify-content: inherit;
+  margin: 0 auto;
+  height: 100vh;
+}
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction:row;
+  justify-content: center;
+  gap: 10px;
+}
+h1 {
+  color: #1b1b32;
+  font-size: 25px;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.aplicacion-tareas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Listas de Tareas */
+
+.tareas-lista-principal {
+  width: 600px;
+  min-height: 600px;
+  background-color: #fff;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 26px;
+}
+
+@media (max-width: 768px) {
+  .tareas-lista-principal {
+    width: 500px;
+    min-height: 680px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+  }
+  h1 {
+    font-size: 22.5px;
+    margin: 15px 0;
+  }
+  }
+
+  @media (max-width: 576px) {
+    .tareas-lista-principal {
+      width: 380px;
+      min-height: 600px;
+      padding: 15px;
+      margin: 5px;
+      border-radius: 15px;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    
+    }
+
+    @media (max-width: 380px) {
+      .tareas-lista-principal {
+        width: 300px;
+        min-height: 600px;
+        padding: 12px;
+        margin: 4px;
+        border-radius: 12px;
+      }
+      h1 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+      
+      }
