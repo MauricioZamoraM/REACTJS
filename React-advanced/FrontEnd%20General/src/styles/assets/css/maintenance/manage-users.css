@@ -1,0 +1,43 @@
+:root {
+  --primary: #4C9C2E;
+  --secondary: #212830;
+}
+
+.button-primary {
+  background-color: var(--primary) !important;
+}
+
+.button-primary:hover{
+  background-color: var(--primary) !important;
+  color: var(--secondary) !important;
+}
+.button-secondary{
+  color: var(--secondary) !important;
+}
+
+.button-secondary:hover{
+  border-color: var(--secondary) !important;
+}
+
+.input-form:hover{
+  border-color: var(--secondary) !important;
+}
+.input-form:focus{
+  border-color: var(--secondary) !important;
+  box-shadow: none !important;
+}
+.container-icon {
+  cursor: pointer;
+}
+
+.select-page{
+  margin: 0px 5px 0px 5px;
+}
+
+.select-text{
+  padding-top: 5px;
+}
+
+.size-icon{
+  font-size: 18px;
+}
