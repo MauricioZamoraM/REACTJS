@@ -39,7 +39,7 @@ export default function TiposDeCampos() {
                 { id: 'nombreCliente', name: 'Nombre Cliente' },
                 { id: 'monto', name: 'Monto' },
                 { id: 'fecha', name: 'Fecha' },
-                { id: 'numTelefonoDestino', name: 'Telefono' }, {
+                { id: 'estado', name: 'Estado' }, {
               
               name: 'Editar',
               formatter: (cell, row) => {

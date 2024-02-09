@@ -16,6 +16,14 @@ export const usePagosStore = () => {
             abrirCargar();
             const { data } = await axios.get('https://localhost:7223/api/listarPagos');
             if (data.listPagos.length > 0) {
+                for (var i = 0; i < data.listPagos.length; i++) {
+                    console.log('Entro al for')
+                    if (data.listPagos[i].estado === 1) {
+                        data.listPagos[i].estado = "Activo";
+                    } if (data.listPagos[i].estado === 0) {
+                        data.listPagos[i].estado = "Inactivo";
+                    }
+                }
                 dispatch(setPagos({ listaPagos: data.listPagos }));
                 cerrarCargar();
             } else {
@@ -33,9 +41,63 @@ export const usePagosStore = () => {
         }
     }
 
-    const limpiaPagos = async() => {   
+    //Actualiza e inserta pagos. 
+    const PagosUpsert = async ({ id }) => {
+        // debugger
+        // const token = localStorage.getItem('token');
+        // if (tso_estado == "true" || tso_estado == true) {
+        //     tso_estado = true;
+        // } else {
+        //     tso_estado = false;
+        // }
+        // checkAuthToken();
+        try {
+            const { data } = await axios.post('', { id });
+            if (data.respuesta_tipo === "success") {
+                console.log("data: " + data);
+                SuccessMensaje();
+                // localStorage.setItem("token", data.token);
+                // sessionStorage.setItem("token", data.token);
+                dispatch(upSertPagos({ respuesta: data }));
+                navigate('/pages/tipoSolicitud');
+            }
+            if (data.respuesta_tipo === "warning") {
+                Swal.fire(
+                    'TipoSolicitud Duplicado',
+                    'Por favor seleccione otra tiposolicitud.',
+                )
+            }
+        } catch (error) {
+            console.log("error:" + error);
+            ErrorMensaje();
+        }
+    }
+
+    //Obtiene el pago a actualizar para cargar el form de editar.
+    const getPagosUpdate = async (id_pago) => {
         //debugger
-        dispatch( setPagosDataForm({ getData: '' }) );
+        // const token = localStorage.getItem('token');
+        // const sistema = localStorage.getItem('sistema_nombre');
+        const id = id_pago;
+        // checkAuthToken();
+        try {
+            abrirCargar();
+            const { data } = await axios.post(services.API.TipoSolicitud.ApiTesoreria_Mant_Tipo_Solicitud_Obtener, {id});
+            if (data.respuesta_tipo === "success") {
+                // localStorage.setItem("token", data.token);
+                // sessionStorage.setItem("token", data.token);
+                dispatch(setPagosDataForm({ getData: data }));
+                navigate('/pages/PagosEditar');
+            }
+        } catch (error) {
+            console.log("error:" + error);
+        }
+    }
+
+
+    const limpiaPagos = async () => {
+        //debugger
+        dispatch(setPagosDataForm({ getData: '' }));
     }
 
 

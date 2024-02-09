@@ -55,25 +55,25 @@ export const useTiposDeCamposStore = () => {
         dispatch( setTiposDeCamposDataForm({ getData: '' }) );
     }
 
-//     const getTiposDeCamposUpdate = async(tiposolicitud_id) => {   
-//         //debugger
-//         // const token = localStorage.getItem('token');
-//         // const sistema = localStorage.getItem('sistema_nombre');
-//         // const tso_id = tiposolicitud_id;
-//         // checkAuthToken();
-//             try {
-//                 abrirCargar();
-//                 const { data } = await axios.post(services.API.TipoSolicitud.ApiTesoreria_Mant_Tipo_Solicitud_Obtener, {token, sistema, tso_id});
-//                 if(data.respuesta_tipo === "success"){
-//                     localStorage.setItem("token", data.token);
-//                     sessionStorage.setItem("token", data.token);
-//                     dispatch( setTiposDeCamposDataForm({ getData: data }) );
-//                     navigate('/pages/tipoSolicitudEditar');
-//                 }
-//             } catch (error) {
-//                 console.log("error:" + error);
-//     }
-// }
+    const getTiposDeCamposUpdate = async(tiposolicitud_id) => {   
+        //debugger
+        // const token = localStorage.getItem('token');
+        // const sistema = localStorage.getItem('sistema_nombre');
+        // const tso_id = tiposolicitud_id;
+        // checkAuthToken();
+            try {
+                abrirCargar();
+                const { data } = await axios.post(services.API.TipoSolicitud.ApiTesoreria_Mant_Tipo_Solicitud_Obtener, {token, sistema, tso_id});
+                if(data.respuesta_tipo === "success"){
+                    localStorage.setItem("token", data.token);
+                    sessionStorage.setItem("token", data.token);
+                    dispatch( setTiposDeCamposDataForm({ getData: data }) );
+                    navigate('/pages/tipoSolicitudEditar');
+                }
+            } catch (error) {
+                console.log("error:" + error);
+    }
+}
 
     const SuccessMensaje = async () => {
         Swal.fire(
