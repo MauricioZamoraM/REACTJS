@@ -102,6 +102,10 @@ import Pagos from "../views/Pagos/pagos";
 import PagosEditar from "../views/Pagos/pagosEditar";
 import FlujoDeTrabajo from "../views/FlujoDeTrabajo/FlujoDeTrabajo";
 import FlujoDeTrabajoEditar from "../views/FlujoDeTrabajo/FlujoDeTrabajoEditar";
+//TipoSolicitudes
+import TipoSolicitud from "../views/TipoSolicitud/TipoSolicitud";
+import TipoSolicitudEditar from "../views/TipoSolicitud/TipoSolicitudEditar";
+
 
 const protectedRoutes = [
   { path: "dashboard/finance", element: <FinanceMonitoring /> },
@@ -195,6 +199,8 @@ const protectedRoutes = [
   // { path: "pages/pagosEditar", element: <PagosEditar/> },
   { path: "pages/flujoTrabajo", element: <FlujoDeTrabajo />},
   // { path: "pages/flujoTrabajoEditar", element: <FlujoDeTrabajoEditar/>}
+  { path: "pages/tipoSolicitud", element: <TipoSolicitud /> }, 
+  { path: "pages/tipoSolicitudEditar", element: <TipoSolicitudEditar /> }
 ]
 
 export default protectedRoutes;

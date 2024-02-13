@@ -340,7 +340,12 @@ const pagesMantenimientos = [
   {
     "label": "Flujo de trabajo",
     "link": "/pages/flujoTrabajo"
-  }
+  },
+  {
+    "label": "Tipo Solicitud",
+    "link": "/pages/tipoSolicitud"
+  },
+
 ]
 
 

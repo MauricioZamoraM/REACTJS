@@ -13,7 +13,7 @@ export default function TiposDeCampos() {
 
   const { listPagos, getPagosUpdate, limpiaPagos } = usePagosStore();
   const { pagos } = useSelector(state => state.pago);
-
+debugger
   useEffect(() => {
     listPagos();
     // limpiaTiposDeCampos();
