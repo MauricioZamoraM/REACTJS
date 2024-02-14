@@ -13,7 +13,7 @@ export const tipoSolicitudSlice = createSlice({
             state.tiposolicitudes = payload;
         },
         upSertTipoSolicitud: (state, {payload}) => {
-            state.tiposolicitudes = payload.respuesta.solicitudes;
+            state.tiposolicitudes = payload;
         },
         setTipoSolicitudDataForm: (state, {payload}) => {
             state.getDataForm = payload.getData;
