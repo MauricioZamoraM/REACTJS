@@ -1,0 +1,43 @@
+.boton-contenedor{
+    height: 60px;
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 38px;
+    background-color: #1b1b32 ;
+    color: white;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    border:2px solid white;
+    margin: 4px;
+    cursor: pointer;
+    user-select: none;
+    width: 60px;
+    text-align: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.operador{
+    background-color: #0b5383;
+}
+
+.boton-contenedor:hover{
+    background-color: #0b5383;
+}
+.operador:hover{
+    background-color: #1b1b32;
+}
+
+
+@media (max-width: 576px) {
+    .boton-contenedor{
+        font-size: 30px;
+        height: 50px;
+     
+    }
+}
